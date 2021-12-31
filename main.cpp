@@ -3,45 +3,51 @@
 using namespace std;
 int main()
 {
+	int no,dno,i;
+	int a[5];
 	IntBinaryTree tree;
-	int num, val, findval,delval;
-	cout << "Inserting nodes. " << endl;
-	cout << "How much you enter value: ";
-	cin >> num;
-	cout << "Enter Values " << endl;
-	for (int i = 0; i < num; i++) {
-		cin >> val;
-		tree.insertNode(val);
+	cout << " Enter the Tree Values. " << endl;
+	for ( i = 0; i < 5; i++){
+		cin >> a[i];
+		tree.insertNode(a[i]);
+
 	}
-	cout << endl;
 	cout << "****** Inserting Done. *********" << endl;
 	cout << "************ Display For Order Traversal **********" << endl;
-	
-	cout << "Display Data in InOrder" << endl;
+	cout << "Inorder traversal:\n";
 	tree.showNodesInOrder();
-	cout << endl;
-	cout << "Display Data in PreOrder" << endl;
+	cout << "\nPreorder traversal:\n";
 	tree.showNodesPreOrder();
-	cout << endl;
-	cout << "Display Data in PostOrder" << endl;
+	cout << "\nPostorder traversal:\n";
 	tree.showNodesPostOrder();
-	cout << endl<<"************************Display End*******************" << endl;
+	cout << "************************Display End*******************" << endl;
 	cout << "****************Searching Start***********" << endl;
-	cout << "Which Character You want to Search:  " ;
-	cin >> findval;
-	if (tree.searchNode(findval))
-		cout << findval<<" is found in the tree.\n";
+	cout << "Enter Number U want to search" << endl;
+	cin >> no;
+	if (tree.searchNode(no))
+		cout <<"\t" <<no <<"..is found in the tree.\n";
 	else
-		cout << findval<<" is not found in the tree.\n";
+		cout << "\t" <<no << "..is not found in the tree.\n";
 	cout << "*****************Searching End***********************" << endl;
+
 	cout << "**************Deletion Start *************" << endl;
-	cout << "Which Number you want to Delete...\n";
-	cin >> delval;
-	tree.remove(delval);
-	cout << "Now, here are the nodes in InOrder:\n";
+	cout << "Enter No u want to delete " << endl;
+	cin >> dno;
+	cout << "Deleting " << dno << "....."<< endl;;
+	if (dno >a[i]){
+		cout << "oops something wrong.... not deleted:" << dno   << endl;
+
+	}
+	else {
+		tree.remove(dno);
+	}
+	
+	cout << "Now, here are the nodes:\n";
 	tree.showNodesInOrder();
 
-	cout << endl<<"**********************Deletion End******************* " << endl;
+	cout << "**********************Deletion End******************* " << endl;
+
+ 
+	
 	return 0;
 }
-
